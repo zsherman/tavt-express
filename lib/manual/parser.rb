@@ -1,6 +1,6 @@
 module CarParser
 
-  attr_accessor :cur_make, :cur_model, :cur_year, :cur_vin
+  attr_accessor :cur_make, :cur_model, :cur_year, :cur_vin, :id
 
   def parse_page(page)
     page.each do |line|
@@ -32,14 +32,15 @@ module CarParser
 
     if data
       @cur_year = data[:year] if !data[:year].empty?
-      cars << Car.new(make:  cur_make,
+      cars << Car.new(id: id, 
+                      make:  cur_make,
                       model: cur_model,
                       year:  cur_year,
                       trim:  data[:trim].strip,
                       vin:   data[:vin].sub(" ", ""),
                       vid:   data[:vid],
                       value: data[:value])
-
+      @id = @id + 1
       return true
     else
       return false

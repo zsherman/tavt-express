@@ -1,15 +1,15 @@
-require './manual/parser.rb'
-require 'pdf-reader'
+require './lib/manual/parser.rb'
 
 class Manual
 
   include CarParser
   attr_accessor :reader, :pages, :cars
 
-  def initialize(manual)
-    @reader = PDF::Reader.new(manual)
+  def initialize()
+    @reader = PDF::Reader.new("./lib/2013_TAVT_Manual.pdf")
     @pages = []
     @cars = []
+    @id = 1
   end
 
   def extract_data(range)
@@ -36,32 +36,32 @@ class Manual
 
 end
 
-class Car
+#class Car
 
-  attr_accessor :make, :model, :year, :vin, :vid, :value, :trim
+#  attr_accessor :make, :model, :year, :vin, :vid, :value, :trim
 
-  def initialize(info)
-    @make = info[:make]
-    @model = info[:model]
-    @trim = info[:trim]
-    @year = info[:year]
-    @vin = info[:vin]
-    @vid = info[:vid]
-    @value = info[:value]
-  end
+#  def initialize(info)
+#    @make = info[:make]
+#    @model = info[:model]
+#    @trim = info[:trim]
+#    @year = info[:year]
+#    @vin = info[:vin]
+#    @vid = info[:vid]
+#    @value = info[:value]
+#  end
 
-end
+#end
 
-manual = Manual.new("2013_TAVT_Manual.pdf")
-manual.extract_data(5)
+# manual = Manual.new("2013_TAVT_Manual.pdf")
+# manual.extract_data(5)
 
-manual.cars.each do |car|
-  puts car.year
-  puts car.make
-  puts car.model
-  puts car.trim
-  puts car.vin
-  puts car.vid
-  puts car.value
-  puts '-----------'
-end
+# manual.cars.each do |car|
+#   puts car.year
+#   puts car.make
+#   puts car.model
+#   puts car.trim
+#   puts car.vin
+#   puts car.vid
+#   puts car.value
+#   puts '-----------'
+# end

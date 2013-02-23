@@ -14,5 +14,5 @@
 /log/*.log
 /tmp
 
-/public/*.pdf
+/lib/*.pdf
 .rvmrc

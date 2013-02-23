@@ -1,0 +1,17 @@
+<div class="car-lookup">
+  <%= form_tag('search', :method => :get, :remote => true) do %>
+    <%= label_tag(:q, "Car lookup:") %>
+    <%= text_field_tag(:vin) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
+
+<div class="car-info">
+  <ul>
+    <li>Make: <span class="make"></span></li>
+    <li>Model: <span class="model"></span></li>
+    <li>Year: <span class="year"></span></li>
+    <li>VIN: <span class"vin"></span></li>
+    <li>Value: <span class="value"></span></li>
+  </ul>
+</div>
