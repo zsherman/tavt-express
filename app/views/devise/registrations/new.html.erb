@@ -40,7 +40,7 @@
     <%= f.input_field :city %>
   <% end %>
 
-  <%=  f.input :state, :collection => ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'], :hint => "simple select box" %>
+  <%=  f.input :state, :collection => ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'] %>
 
   <%= f.input :zip_code, :wrapper => :prepend, :label => false do %>
     <%= content_tag :span, "Zip Code", :class => "add-on" %>
@@ -61,6 +61,8 @@
     <%= content_tag :span, "Last Name", :class => "add-on" %>
     <%= f.input_field :last_name %>
   <% end %>
+
+  <%= f.hidden_field :plan_id, :value => params[:plan_id] %>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
