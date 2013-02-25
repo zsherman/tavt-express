@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225130653) do
+ActiveRecord::Schema.define(:version => 20130225132202) do
 
   create_table "cars", :force => true do |t|
     t.string   "vin"
@@ -25,9 +25,26 @@ ActiveRecord::Schema.define(:version => 20130225130653) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "plans", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "price"
+    t.integer  "searches"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "plan_id"
+    t.integer  "user_id"
+    t.boolean  "active"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",    :null => false
-    t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -36,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20130225130653) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "business_name"
     t.string   "doing_business_as"
     t.string   "website_url"
@@ -51,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20130225130653) do
     t.string   "last_name"
     t.integer  "plan_id"
     t.string   "city"
-    t.boolean  "active",                 :default => false
+    t.boolean  "active"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,10 +1,13 @@
 TavtExpress::Application.routes.draw do
   devise_for :users
+  resources :subscriptions
+  resources :plans
 
   root :to => 'pages#home'
   match 'car_lookup' => 'pages#car_lookup'
   match 'search' => 'pages#search'
-  match '/pricing' => 'pages#pricing'
+  match '/pricing' => 'plans#index'
+  match '/dashboard' => 'pages#dashboard'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,4 @@
+<% @plans.each do |p| %>
+  <p><%= p.name %> / <%= p.price %></p>
+  <%= link_to "Sign up", new_subscription_path(:plan_id => p.id) %>
+<% end %>
