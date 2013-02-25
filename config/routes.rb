@@ -4,6 +4,7 @@ TavtExpress::Application.routes.draw do
   root :to => 'pages#home'
   match 'car_lookup' => 'pages#car_lookup'
   match 'search' => 'pages#search'
+  match '/pricing' => 'pages#pricing'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
